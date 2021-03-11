@@ -1,10 +1,21 @@
 import React from 'react';
-import { View } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-// import { Container } from './styles';
+import SignIn from '../views/SingIn';
+import SignUp from '../views/SingUp';
 
-const navigations: React.FC = () => {
-  return <View />;
-};
+const Auth = createStackNavigator();
 
-export default navigations;
+const AuthRoutes: React.FC = () => (
+  <Auth.Navigator
+    screenOptions={{
+      headerShown: false,
+      cardStyle: { backgroundColor: '#312e38' },
+    }}
+  >
+    <Auth.Screen name="SignIn" component={SignIn} />
+    <Auth.Screen name="SingUp" component={SignUp} />
+  </Auth.Navigator>
+);
+
+export default AuthRoutes;
